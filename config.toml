@@ -1,4 +1,5 @@
-baseURL = "https://tranChiVi0123.github.io/vivien.dev"
+baseURL = ""
+relativeURLs = "True"
 
 # theme
 # 主题

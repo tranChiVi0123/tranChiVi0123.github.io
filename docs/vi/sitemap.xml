@@ -2,30 +2,30 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/vi/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>/vi/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://tranChiVi0123.github.io/vivien.dev/categories/"
+                        href="/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="vi"
-                    href="https://tranChiVi0123.github.io/vivien.dev/vi/categories/"
+                    href="/vi/categories/"
                     /></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/vi/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>/vi/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://tranChiVi0123.github.io/vivien.dev/tags/"
+                        href="/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="vi"
-                    href="https://tranChiVi0123.github.io/vivien.dev/vi/tags/"
+                    href="/vi/tags/"
                     /></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/vi/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>/vi/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://tranChiVi0123.github.io/vivien.dev/"
+                        href="/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="vi"
-                    href="https://tranChiVi0123.github.io/vivien.dev/vi/"
+                    href="/vi/"
                     /></url></urlset>

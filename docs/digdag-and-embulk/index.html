@@ -5,16 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk - Vivien</title><meta name="Description" content="Hugo theme - LoveIt"><meta property="og:title" content="Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Xin chào tất cả mọi người, vừa qua trong team mình có làm một project để chạy cập nhật dữ liệu và report cho máy chủ. Nó được viết dựa trên embulk và digdag là một server trạm và một thử viện để run batch job của ruby và một số ngôn ngữ khác. Mình vẫn đang trong giai đoạn tìm hiểu và đúc kết kinh nghiệm thông qua là nghiên cứu này.
+&hellip;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/digdag-and-embulk/" /><meta property="og:image" content="/digdag-and-embulk/featured-image.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-14T17:59:33+09:00" />
-<meta property="article:modified_time" content="2022-11-14T19:08:35+09:00" /><meta property="og:site_name" content="Vivien" />
+<meta property="article:modified_time" content="2022-11-15T02:53:36+09:00" /><meta property="og:site_name" content="Vivien" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/digdag-and-embulk/featured-image.png"/>
 <meta name="twitter:title" content="Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Xin chào tất cả mọi người, vừa qua trong team mình có làm một project để chạy cập nhật dữ liệu và report cho máy chủ. Nó được viết dựa trên embulk và digdag là một server trạm và một thử viện để run batch job của ruby và một số ngôn ngữ khác. Mình vẫn đang trong giai đoạn tìm hiểu và đúc kết kinh nghiệm thông qua là nghiên cứu này.
+&hellip;"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -34,8 +36,8 @@
                             "url": "\/digdag-and-embulk\/featured-image.png",
                             "width":  1000 ,
                             "height":  500 
-                        }],"genre": "posts","keywords": "ruby","wordcount":  5 ,
-        "url": "\/digdag-and-embulk\/","datePublished": "2022-11-14T17:59:33+09:00","dateModified": "2022-11-14T19:08:35+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "ruby","wordcount":  3878 ,
+        "url": "\/digdag-and-embulk\/","datePublished": "2022-11-14T17:59:33+09:00","dateModified": "2022-11-15T02:53:36+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,8 +121,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>tranChiVi0123</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-14">2022-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;<span id="/digdag-and-embulk/" class="leancloud_visitors" data-flag-title="Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-14">2022-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3878 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;19 minutes&nbsp;<span id="/digdag-and-embulk/" class="leancloud_visitors" data-flag-title="Đồng bộ hóa dữ liệu chính RDS (Aurora, MySQL) với BigQuery bằng cách sử dụng Digdag và Embulk">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
@@ -135,13 +137,695 @@
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><h1 id="1-embulk-digdag-là-gì">1. Embulk, Digdag là gì?</h1></div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-embulk-digdag-là-gì">1. Embulk, Digdag là gì?</a>
+      <ul>
+        <li><a href="#11-embulk">1.1 Embulk</a></li>
+        <li><a href="#12-digdag">1.2 Digdag</a></li>
+        <li><a href="#13-kết-hợp-digdag-và-embulk">1.3 Kết hợp Digdag và Embulk</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-tổng-quan-hệ-thống">2. Tổng quan hệ thống</a>
+      <ul>
+        <li><a href="#21-thu-thập-thông-tin-bảng-của-đối-tượng-đồng-thời">2.1 Thu thập thông tin bảng của đối tượng đồng thời</a></li>
+        <li><a href="#22-khởi-động-embulk">2.2 Khởi động Embulk</a></li>
+        <li><a href="#23-đồng-bộ-hóa-từ-aurora-sang-bigquery">2.3 Đồng bộ hóa từ Aurora sang BigQuery</a></li>
+        <li><a href="#24-lưu-log-thực-thi">2.4 Lưu log thực thi</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-trích-xuất-bằng-digdui">3. Trích xuất bằng DigdUI</a>
+      <ul>
+        <li><a href="#31-xử-lý-retry">3.1 Xử lý retry</a></li>
+        <li><a href="#32-xử-lý-song-song">3.2 Xử lý song song</a></li>
+        <li><a href="#33-cấu-hình-ha">3.3 Cấu hình HA</a></li>
+        <li><a href="#34-kiểm-tra-nhật-ký-thực-thi-tác-vụ-trong-digdag-ui">3.4 Kiểm tra nhật ký thực thi tác vụ trong Digdag UI</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-file-config">4. File config</a>
+      <ul>
+        <li><a href="#41-digdag">4.1 Digdag</a>
+          <ul>
+            <li><a href="#aurora_to_bigquerydig"><code>aurora_to_bigquery.dig</code></a></li>
+            <li><a href="#sync_one_tabledig"><code>sync_one_table.dig</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#42-embulk">4.2 Embulk</a>
+          <ul>
+            <li><a href="#aurora_to_bigqueryymlliquid"><code>aurora_to_bigquery.yml.liquid</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-cấu-tạo-server-digdag">5. Cấu tạo server Digdag</a>
+      <ul>
+        <li><a href="#51-chạy-nềndemon">5.1 Chạy nền(demon)</a></li>
+        <li><a href="#52-digdag-ui">5.2 Digdag UI</a></li>
+        <li><a href="#deploy">Deploy</a></li>
+        <li><a href="#tổng-kết">Tổng kết</a></li>
+        <li><a href="#nguồn-tham-khảo">Nguồn tham khảo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Xin chào tất cả mọi người, vừa qua trong team mình có làm một project để chạy cập nhật dữ liệu và report cho máy chủ. Nó được viết dựa trên embulk và digdag là một server trạm và một thử viện để run batch job của ruby và một số ngôn ngữ khác. Mình vẫn đang trong giai đoạn tìm hiểu và đúc kết kinh nghiệm thông qua là nghiên cứu này.
+&hellip;</p>
+<h2 id="1-embulk-digdag-là-gì">1. Embulk, Digdag là gì?</h2>
+<p>Đầu tiên mình sẽ giải thích về cách sử dụng Embulk và Digdag để xây dựng hệ thống. Cả hai đều là OSS by Treasure Data và đều có logo rất cute.</p>
+<h3 id="11-embulk">1.1 Embulk</h3>
+<p><strong>Embulk</strong> hay còn được gọi là ETL tools với chức năng chủ yếu là trích xuất (Extract), chuyển đổi (Transfer) hay để đọc(Load) dữ liệu lớn. Với Embulk thì nó còn cung cấp nhiều plugins để làm việc với số lượng dữ liệu khổng lồ MYSQL, BigQuery. Do vậy mà tùy theo sự kết hợp với từng đối tượng cụ thể mà đầu vào và đầu ra của nó rất đa dạng.</p>
+<h3 id="12-digdag">1.2 Digdag</h3>
+<p><strong>Digdag</strong> hay còn được gọi là Workflow engine, nó sẽ định nghĩa các workflow từ sự phụ thuộc của các tác vụ, thực thi và quản lý các quá trình đó. Nếu chỉ nói thế này bạn sẽ không thể nào hiểu được cụ thể nên mình sẽ cho một ví dụ sau đây.</p>
+<p>Giả sử sau khi bạn xử lý tác vụ 1, thì sẽ xem xét các tác vụ 2,3,4 tiếp theo và tất cả phải được thực hiện trình tự mỗi ngày một lần tại lúc &lsquo;00:00 p.m&rsquo;. Và lúc này ta sẽ giải quyết vấn để này bằng cronjob.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="l">job1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="m">0</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="l">job 2</span><span class="w"> </span><span class="c"># chạy sau job 1 10&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="m">0</span><span class="w"> </span><span class="m">20</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="l">job 3</span><span class="w"> </span><span class="c"># chạy sau job 2 10&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="m">0</span><span class="w"> </span><span class="m">50</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="l">job 4</span><span class="w"> </span><span class="c"># chạy sau job 3 30&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tuy nhiên sẽ có nhiều vấn đề xoay quanh cron này.</p>
+<ul>
+<li>Vì một nguyên nhân nào đó mà thời gian thực thi của job1 nó lớn hơn 10&rsquo;, lúc đó thực thi job2 sẽ phải chờ job1?</li>
+<li>Việc thực thi của job1 thất bại thì các job 2, 3, 4 có bị hủy bỏ?</li>
+</ul>
+<p>Bạn có thể giải quyết vấn đề trên bằng cách viết như thế này:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="l">job1 &amp;&amp; job2 &amp;&amp; job3 &amp;&amp; job4</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Thế này thì được rồi nhỉ :). Nhưng nếu gặp một yêu cầu phức tạp như bên dưới này thì sao nhỉ?</p>
+<ul>
+<li>Mỗi job sẽ retry lại 3 lần nếu gặp lỗi</li>
+<li>Vì job 2, 3, 4 độc lâp với nhau nên sẽ thực hiện song song nhau.</li>
+<li>Thực thi một lúc 2 jobs song song nhau.</li>
+</ul>
+<p>Nếu chỉ dùng config thông thường của cronjob thì thật là xin đầu hàng nhưng bằng digdag thì việc này khá là giản đơn.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">+ task1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">job1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+parallel_tasks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">+ task2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">job2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">+ task3</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">job3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">+ task4</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">job4</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Cũng có nhiều Workflow engine tương tự như Jenkins, Aiflow, Luigi nhưng mà Digdag có vài lợi điểm hơn.</p>
+<ul>
+<li>Vì sử dụng <code>yaml</code> nên sẽ đỡ thời gian làm quen</li>
+<li>Cấu hình tính khả dụng cao (HA) dễ dàng</li>
+<li>Thao tác trên môi trường phân tán dễ dàng</li>
+</ul>
+<h3 id="13-kết-hợp-digdag-và-embulk">1.3 Kết hợp Digdag và Embulk</h3>
+<p>Bằng cách kết hợp Digdag và Embulk, bạn có thể nhận được nhiều Embulk hơn nữa. Vì Embulk là một công cụ để thực hiện hiệu quả một quy trình ETL, nên nó không thể quản lý nhiều quy trình ETL.</p>
+<p>Ví dụ: hãy xem xét chuyển nhiều bảng được lưu trữ trong Aurora sang BigQuery. Trong trường hợp này Embulk phải được gọi nhiều lần khi có bảng. Ngay cả khi có lỗi xảy ra trong quá trình chuyển, Embulk không thể thử lại hoặc thông báo cho bạn về lỗi đó. Ngoài ra, Embulk không hỗ trợ xử lý tùy ý trước hoặc sau khi đồng bộ hóa bảng.</p>
+<p>Bằng cách sử dụng Digdag, bạn sẽ dễ dàng quản lý hiệu quả nhiều lệnh gọi Embulk và xử lý chèn trước và sau ETL.</p>
+<h2 id="2-tổng-quan-hệ-thống">2. Tổng quan hệ thống</h2>
+<p><figure><a class="lightgallery" href="../digdag-and-embulk/overview_system.png" title="Overview System" data-thumbnail="/digdag-and-embulk/overview_system.png" data-sub-html="<h2>Basic configuration preview</h2><p>Overview System</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/overview_system.png"
+            data-srcset="../digdag-and-embulk/overview_system.png, ../digdag-and-embulk/overview_system.png 1.5x, ../digdag-and-embulk/overview_system.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/overview_system.png" width="1024" height="845" />
+    </a><figcaption class="image-caption">Basic configuration preview</figcaption>
+    </figure>
+Trước hết mình sẽ giải thích từ 1-&gt;4. Bây giờ mỗi ngày job sẽ được thực thi 1 lần và theo Digdag sẽ cấu hình như bên dưới.</p>
+<h3 id="21-thu-thập-thông-tin-bảng-của-đối-tượng-đồng-thời">2.1 Thu thập thông tin bảng của đối tượng đồng thời</h3>
+<p>Nhận thông tin bảng để đồng bộ hóa từ Aurora. Theo mặc định, nó sẽ đồng bộ hóa tất cả các bảng tồn tại trong Aurora.</p>
+<h3 id="22-khởi-động-embulk">2.2 Khởi động Embulk</h3>
+<p>Digdag gọi đến Embulk. Xử lý đồng bộ nhiều bảng là độc lập với nhau, vì vậy để tăng tốc độ xử lý, nhiều tiến trình của Embulk được khởi động và xử lý song song được thực hiện.
+đến</p>
+<h3 id="23-đồng-bộ-hóa-từ-aurora-sang-bigquery">2.3 Đồng bộ hóa từ Aurora sang BigQuery</h3>
+<p>Embulk xử lý quá trình đồng bộ hóa từ Aurora sang BigQuery. Digdag chuyển thông tin cần thiết để kết nối với Aurora và BigQuery. Thông tin được truyền từ Digdag được mở rộng bởi Liquid, công cụ cám dỗ được tích hợp sẵn của Embulk.</p>
+<h3 id="24-lưu-log-thực-thi">2.4 Lưu log thực thi</h3>
+<p>Log của mỗi quy trình từ 1 đến 3 được tải lên S3. Logs bao gồm thời gian bắt đầu tác vụ, thời gian kết thúc, nội dung xuất ra đầu ra tiêu chuẩn, v.v.
+jobs
+Ngoài ra, nếu jobs không thành công, Slack sẽ được thông báo (phía trên bên phải).
+<figure><a class="lightgallery" href="../digdag-and-embulk/slack_noti_error.png" title="Slack Notification" data-thumbnail="/digdag-and-embulk/slack_noti_error.png" data-sub-html="<h2>Slack show error message</h2><p>Slack Notification</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/slack_noti_error.png"
+            data-srcset="../digdag-and-embulk/slack_noti_error.png, ../digdag-and-embulk/slack_noti_error.png 1.5x, ../digdag-and-embulk/slack_noti_error.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/slack_noti_error.png" width="1024" height="456" />
+    </a><figcaption class="image-caption">Slack show error message</figcaption>
+    </figure></p>
+<p>Ngoài ra, bạn cNotificationra logs và thử lại các tác vụ không thành công từ giao diện người dùng web (Digdag UI) được tích hợp trong Digdag (phía trên bên trái của hình trên).
+<figure><a class="lightgallery" href="../digdag-and-embulk/digdag_ui.png" title="Digdag UI" data-thumbnail="/digdag-and-embulk/digdag_ui.png" data-sub-html="<h2>Digdag UI control jobs</h2><p>Digdag UI</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/digdag_ui.png"
+            data-srcset="../digdag-and-embulk/digdag_ui.png, ../digdag-and-embulk/digdag_ui.png 1.5x, ../digdag-and-embulk/digdag_ui.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/digdag_ui.png" width="1024" height="758" />
+    </a><figcaption class="image-caption">Digdag UI control jobs</figcaption>
+    </figure></p>
+<h2 id="3-trích-xuất-bằng-digdui">3. Trích xuất bằng DigdUI</h2>
+<p>So với việc tiếp tục sử dụng trình bao bọc go trong khi mở rộng nó, việc sử dụng Digdag giúp giải quyết các vấn đề sau dễ dàng hơn.</p>
+<h3 id="31-xử-lý-retry">3.1 Xử lý retry</h3>
+<p>Ngay cả khi xác suất thành công của mỗi job là đủ cao, nhưng nếu bạn thực hiện job liên tiếp, xác suất thành công của tất cả các job là thấp. Ví dụ: nếu bạn thực hiện 1.000 jobs liên tiếp với 99,9% cơ hội thành công, thì chỉ có 36,8% cơ hội là tất cả chúng sẽ thành công. Nếu bạn làm điều đó 10.000 lần liên tiếp, nó sẽ chỉ là 0,0045%. Tuy nhiên, chỉ với một quy trình thử lại không thành công, các xác suất này lần lượt là 99,9% và 99,0%. Trên thực tế, các tác vụ truy cập mạng như tác vụ này (Aurora, BigQuery, v.v.) có thể hết thời gian chờ do trục trặc mạng. Thử xử lý lại là điều cần thiết vì kết quả là việc thực thi tác vụ có thể không thành công.</p>
+<p>Biểu đồ bên dưới thể hiện mối quan hệ giữa xác suất thành công trong tất cả các job (trục tung) và số nhiệm vụ liên tiếp (trục hoành) (lưu ý: trục tung và trục hoành là logarit). Nếu bạn cho phép tối đa 3 lần thử lại, tất cả các tác vụ sẽ thành công với xác suất là 99,9% ngay cả khi chúng được thực hiện 109 (1 tỷ) lần liên tiếp.</p>
+<p><figure><a class="lightgallery" href="../digdag-and-embulk/retry_graph.png" title="Retry Graph" data-thumbnail="/digdag-and-embulk/retry_graph.png" data-sub-html="<h2>Retry Graph</h2><p>Retry Graph</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/retry_graph.png"
+            data-srcset="../digdag-and-embulk/retry_graph.png, ../digdag-and-embulk/retry_graph.png 1.5x, ../digdag-and-embulk/retry_graph.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/retry_graph.png" width="1024" height="530" />
+    </a><figcaption class="image-caption">Retry Graph</figcaption>
+    </figure></p>
+<p>Như bạn có thể thấy, quá trình thử lại rất hiệu quả, nhưng nó cũng là một quá trình thường bị lãng quên vì khó thực hiện và kiểm tra. Với Digdag, quá trình thử lại có thể được thực hiện đơn giản bằng cách viết một dòng cài đặt trong định nghĩa tác vụ, do đó có thể dễ dàng giới thiệu quá trình thử lại.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+ task1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+ task2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+ task3</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ngoài ra, nếu một job sau này trong dòng công việc không thành công, thì việc bắt đầu lại dòng công việc từ đầu là vô ích. Đặc biệt là khi thời gian xử lý các tác vụ trong nửa đầu của quy trình làm việc kéo dài, thì sự lãng phí là điều dễ nhận thấy. Do đó, tôi chỉ muốn thử lại các tác vụ không thành công.
+<figure><a class="lightgallery" href="../digdag-and-embulk/retry_demo.png" title="Retry Demo" data-thumbnail="/digdag-and-embulk/retry_demo.png" data-sub-html="<h2>Retry Demo</h2><p>Retry Demo</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/retry_demo.png"
+            data-srcset="../digdag-and-embulk/retry_demo.png, ../digdag-and-embulk/retry_demo.png 1.5x, ../digdag-and-embulk/retry_demo.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/retry_demo.png" width="1024" height="365" />
+    </a><figcaption class="image-caption">Retry Demo</figcaption>
+    </figure></p>
+<p>Digdag giải quyết vấn đề này bằng cách đặt thử lại cho mỗi tác vụ.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">+task1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+task2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+task3</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sometimes_fail.sh</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32-xử-lý-song-song">3.2 Xử lý song song</h3>
+<p>Bằng cách chạy song song các tác vụ độc lập, bạn có thể rút ngắn thời gian thực hiện của toàn bộ quy trình làm việc. Ngoài ra, nếu các loại tài nguyên máy (CPU, bộ nhớ, mạng, v.v.) được sử dụng bởi mỗi tác vụ là khác nhau, thì tài nguyên máy có thể được sử dụng một cách hiệu quả.</p>
+<p>Tuy nhiên, việc viết các chương trình xử lý song song không có lỗi là rất khó và chúng tôi thường phải vật lộn với các lỗi không thể lặp lại. Với Digdag, Digdag đảm nhận phần việc nặng nhọc của tính song song này, cho phép người dùng Digdag tập trung vào các nhiệm vụ cá nhân của họ. Ngoài ra, bạn có thể dễ dàng điều chỉnh số lần thực thi song song với các tùy chọn khởi động Digdag.</p>
+<h3 id="33-cấu-hình-ha">3.3 Cấu hình HA</h3>
+<p>Một trong những vấn đề khi sử dụng cron để quản lý quy trình làm việc là điều gì sẽ xảy ra nếu máy chủ ngừng hoạt động. Máy chủ cron không phải là máy chủ không trạng thái và không thể dễ dàng mở rộng quy mô.</p>
+<p>Digdag giải quyết vấn đề này bằng cách lưu trữ chính quy trình làm việc và trạng thái của nó trong PostgreSQL. Các công nhân thực thi các tác vụ và Giao diện người dùng Digdag đều không có trạng thái, vì vậy chúng có thể dễ dàng thu nhỏ và định cấu hình cho HA.</p>
+<p>Tất nhiên, khi đặt Digdag thành cấu hình HA, bản thân PostgreSQL cũng cần được đặt thành cấu hình HA, chẳng hạn như đặt RDS thành cấu hình Multi-AZ.</p>
+<h3 id="34-kiểm-tra-nhật-ký-thực-thi-tác-vụ-trong-digdag-ui">3.4 Kiểm tra nhật ký thực thi tác vụ trong Digdag UI</h3>
+<p>Máy chủ Digdag đi kèm với giao diện người dùng web (Digdag UI), mà bạn có thể sử dụng để thực hiện những việc như:</p>
+<ul>
+<li>Kiểm tra Nhật ký thực thi quy trình công việc</li>
+<li>Thử lại quy trình làm việc không thành công</li>
+<li>Chạy quy trình làm việc ngay</li>
+</ul>
+<p>Vì các thao tác này có thể được thực hiện từ Giao diện người dùng Digdag nên ngay cả những thành viên không quen thuộc với các lệnh Digdag cũng có thể thực hiện các thao tác.</p>
+<p>Tài liệu không đề cập đến cách khởi chạy giao diện người dùng Digdag, nhưng nó thực sự khởi chạy khi bạn khởi động máy chủ Digdag. Theo mặc định, nó xuất hiện trên cổng 65432, vì vậy bạn có thể xem Giao diện người dùng Digdag bằng cách truy cập <a href="http://localhost:65432/" target="_blank" rel="noopener noreffer ">http://localhost:65432/</a>. Lưu ý rằng Node.js 7.x được viết trong Yêu cầu README của GitHub, nhưng Node.js không bắt buộc trừ khi phát triển Giao diện người dùng Digdag.</p>
+<h2 id="4-file-config">4. File config</h2>
+<p>Sau đó, từ đây, tôi sẽ giải thích bằng một tệp cấu hình cụ thể.</p>
+<h3 id="41-digdag">4.1 Digdag</h3>
+<h4 id="aurora_to_bigquerydig"><code>aurora_to_bigquery.dig</code></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l">Asia/Tokyo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Slack通知のためのプラグインの読み込み</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">plugin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">repositories</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">https://jitpack.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dependencies</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">com.github.szyn:digdag-slack:0.1.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webhook_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://hooks.slack.com/services/HOGE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_name</span><span class="p">:</span><span class="w"> </span><span class="l">aurora_to_bigquery</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 認証情報の取得</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+get_db_info</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">docker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ruby:2.4.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">gem install aws-sdk</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rb&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">Prepare.get_db_info</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;tasks/prepare&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 同期対象テーブルの取得</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+get_tables_to_sync</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">docker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ruby:2.4.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">gem install mysql2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rb&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">Prepare.get_tables_to_sync</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;tasks/prepare&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 同期処理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+sync</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">for_each&gt;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">table</span><span class="p">:</span><span class="w"> </span><span class="l">${TABLES}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_do</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">call&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">sync_one_table.dig</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Quy trình làm việc này được chia thành ba phần chính. Mỗi nhiệm vụ là ba nhiệm vụ: get_db_info, get_tables_to_sync, đồng bộ hóa.</p>
+<p>Get_db_info đầu tiên nhận mật khẩu để kết nối với Aurora và khóa JSON để kết nối với Google Cloud Platform (GCP). Chúng được lưu trữ trong Hệ thống quản lý khóa Amazon (KMS), vì vậy chúng được phiên bản Ruby của aws-sdk truy xuất và đặt làm biến Digdag.</p>
+<p>Get_tables_to_sync thứ hai nhận danh sách các bảng sẽ được đồng bộ hóa. Dưới mui xe, nó thực hiện <code>SHOW TABLES</code> để lấy danh sách các bảng.</p>
+<p>Và quá trình đồng bộ hóa cuối cùng là nội dung của quá trình đồng bộ hóa, gọi nội bộ Embulk. Đồng bộ hóa nhiều bảng bằng cách sử dụng các biến được đặt bởi hai tác vụ ngược dòng. Toán tử <code>call</code> được sử dụng để thực thi Embulk trong khi thay đổi tham số cho từng bảng. Ngoài ra, quá trình xử lý song song được thực hiện vì <code>_parallel: true</code> được đặt. Số lượng thực thi song song đồng thời được kiểm soát bởi tùy chọn <code>--max-task-threads</code> khi khởi động máy chủ Digdag. Do đó, tất cả các bảng không được đồng bộ hóa cùng một lúc và nhóm luồng được sử dụng một cách thích hợp.</p>
+<p>Docker được sử dụng để cách ly môi trường mà các tác vụ này được thực thi. Điều này giúp loại bỏ nhu cầu cài đặt Ruby, đá quý, v.v. trên chính máy chủ mà Digdag đang chạy, giảm thời gian và công sức cần thiết để xây dựng máy chủ. Vì việc tự quản lý Dockerfiles và Docker image rất phức tạp nên chúng tôi sử dụng Docker image chính thức được lưu trữ trong DockerHub. Và tôi đang cài đặt các thư viện cần thiết, v.v. trên những hình ảnh đó. Do đó, lần đầu tiên bạn chạy nó, bạn sẽ phải đợi một lúc để cài đặt gem. Tuy nhiên, từ lần thứ hai trở đi, hình ảnh Docker được xây dựng sẽ được sử dụng, vì vậy vùng chứa sẽ khởi động nhanh chóng.</p>
+<h4 id="sync_one_tabledig"><code>sync_one_table.dig</code></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">+get_timestamp_columns</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">docker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ruby:2.4.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">gem install mysql2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rb&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">ColumnOption.get_timestamp_columns</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;tasks/column_option&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+get_columns_to_drop</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">docker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ruby:2.4.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rb&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">ColumnOption.get_columns_to_drop</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">require</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;tasks/column_option&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">+run_embulk</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_retry</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_export</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">EMBULK_INPUT_TABLE</span><span class="p">:</span><span class="w"> </span><span class="l">${table}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">EMBULK_OUTPUT_TABLE</span><span class="p">:</span><span class="w"> </span><span class="l">${table}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">docker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">java:7-jre</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">curl --create-dirs -o /bin/embulk -L https://dl.bintray.com/embulk/maven/embulk-0.8.25.jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">chmod +x /bin/embulk</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sh&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">embulk gem install embulk-input-mysql embulk-filter-column embulk-output-bigquery &amp;&amp; embulk run aurora_to_bigquery.yml.liquid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">_error</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack&gt;</span><span class="p">:</span><span class="w"> </span><span class="l">failed-to-sync-table-template.yml</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Quy trình con này truy xuất các cài đặt trên mỗi bảng và khởi chạy Embulk dựa trên chúng. Quy trình công việc này được gọi bởi toán tử cuộc gọi từ aurora_to_bigquery đã đề cập ở trên.</p>
+<p>Quy trình công việc này bao gồm <code>get_timestamp_columns</code>, <code>get_columns_to_drop</code> và <code>run_embulk</code>. Hai tác vụ đầu tiên đặt các biến môi trường cụ thể cho từng bảng và tác vụ cuối cùng run_embulk bắt đầu Embulk.
+<code>get_timestamp_columns</code> đặt tên cột loại <code>DATETIME</code> thành biến môi trường. Nếu bạn đồng bộ hóa với mặc định, cột loại <code>DATETIME</code> trong Aurora sẽ là loại DẤU THỜI GIAN trong BigQuery. Thoạt nhìn, có vẻ như không có vấn đề gì vì loại ngày trong Aurora cũng là loại ngày trong BigQuery. Tuy nhiên, khi tôi kiểm tra kết quả thực hiện truy vấn trên giao diện người dùng web của BigQuery, kết quả này không được hiển thị ở UTC và việc thay đổi thời gian theo 9 giờ trong đầu tôi hơi phức tạp. Do đó, bằng cách lưu ở loại CHUỖI ở định dạng <code>%Y-%m-%d %H:%M:%S%:z</code>, nó cân bằng khả năng đọc và tính dễ tính ngày. Định dạng này thường được hiển thị trong JST nên con người dễ dàng kiểm tra, đồng thời dễ dàng chuyển đổi sang kiểu DẤU THỜI GIAN nên dễ dàng thực hiện các phép tính ngày tháng. Nhân tiện, trong nội bộ, SQL sau đây được phát hành để đọc thông tin lược đồ của bảng.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">COLUMN_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">COLUMN_TYPE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">TABLE_SCHEMA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">database</span><span class="p">())</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#{table_name}&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>get_columns_to_drop</code> đặt các cột không được đồng bộ hóa thành các biến môi trường. Vì dữ liệu do hệ thống này xử lý bao gồm dữ liệu nhạy cảm nên các cột đó bị loại trừ khỏi mục tiêu đồng bộ hóa. YAML kiểm soát những cột nào bị loại trừ. Tôi đã sử dụng plugin <code>embulk-filter-column</code> cho quy trình này.</p>
+<p>Embulk được gọi bởi tác vụ <code>run_embulk</code> cuối cùng. Sau khi cài đặt Embulk gem cần thiết để đồng bộ hóa, hãy bắt đầu Embulk để đồng bộ hóa các bảng. Nếu xảy ra lỗi trong quá trình này, Slack sẽ được thông báo.</p>
+<p>Thông tin chi tiết về tệp <code>aurora_to_bigquery.yml.liquid</code> được chuyển làm đối số cho Embulk được mô tả trong phần tiếp theo.</p>
+<h3 id="42-embulk">4.2 Embulk</h3>
+<h4 id="aurora_to_bigqueryymlliquid"><code>aurora_to_bigquery.yml.liquid</code></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">in</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_INPUT_DB_HOST }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_INPUT_DB_USER }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_INPUT_DB_PASS }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_INPUT_DB_DATABASE }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">table</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_INPUT_TABLE }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>{<span class="l">% if env.EMBULK_FILTER_DROP_COLUMN != &#39;&#39; %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">filters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">column</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">drop_columns</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="nt">% assign drop_columns = env.EMBULK_FILTER_DROP_COLUMN | split</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="l">%}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="l">% for column in drop_columns %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- {<span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span>{{<span class="l">column}} }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="l">% endfor %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>{<span class="l">% endif %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">out</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">bigquery</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth_method</span><span class="p">:</span><span class="w"> </span><span class="l">json_key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">json_keyfile</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        </span><span class="w">        </span>{{<span class="w"> </span><span class="l">env.EMBULK_OUTPUT_JSON_KEY_CONTENT }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_OUTPUT_PROJECT }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dataset</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_OUTPUT_DATASET }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">table</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_OUTPUT_TABLE }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">open_timeout_sec</span><span class="p">:</span><span class="w"> </span><span class="m">300</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">send_timeout_sec</span><span class="p">:</span><span class="w"> </span><span class="m">300</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">read_timeout_sec</span><span class="p">:</span><span class="w"> </span><span class="m">300</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">gcs_bucket</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="l">env.EMBULK_OUTPUT_GCS_BUCKET }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auto_create_gcs_bucket</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l">GZIP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">source_format</span><span class="p">:</span><span class="w"> </span><span class="l">NEWLINE_DELIMITED_JSON</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default_timezone</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Asia/Tokyo&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">column_options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>{<span class="nt">% assign columns = env.EMBULK_OUTPUT_TIMESTAMP_COLUMNS | split</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="l">%}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>{<span class="l">% for column in columns %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span>{{<span class="w"> </span><span class="nt">column }}, type: STRING, timestamp_format</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;%Y-%m-%d %H:%M:%S%:z&#34;</span><span class="w"> </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>{<span class="l">% endfor %}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tệp này là tệp cấu hình được chuyển đến Embulk. Chúng tôi sử dụng Liquid, công cụ mẫu được tích hợp trong Embulk. Các biến của Digdag được đặt trong môi trường khi bạn chạy các lệnh bằng toán tử sh. Vì vậy, trong Embulk, bạn có thể đọc nó với ký hiệu env..</p>
+<p>Biến môi trường chỉ lưu trữ được thông tin kiểu vô hướng nên khi bạn muốn lưu trữ dưới dạng mảng thì hãy lưu trữ ở định dạng được phân cách bằng dấu phẩy và chia nhỏ.</p>
+<p>Ngoài ra, các biến môi trường sau đây được lưu trữ trong KMS và Embulk được bắt đầu với chúng do tác vụ <code>get_db_info</code> ngược dòng thiết lập.</p>
+<ul>
+<li>EMBULK_INPUT_DB_PASS</li>
+<li>EMBULK_OUTPUT_JSON_KEY_CONTENT</li>
+</ul>
+<p>Tôi nghĩ đó sẽ là một ý tưởng hay vì tôi không còn phải nhúng trực tiếp thông tin đăng nhập vào YAML hoặc mã nguồn nữa, nhưng giao diện người dùng web sẽ hiển thị thông tin đăng nhập. Do đó, một số biện pháp đối phó vẫn là công việc trong tương lai. Bằng cách sử dụng chức năng bí mật, thông tin xác thực sẽ không còn trong nhật ký ở dạng văn bản thuần túy, vì vậy chúng tôi đang cân nhắc sử dụng chức năng này.</p>
+<p><figure><a class="lightgallery" href="../digdag-and-embulk/aurora_to_query_ui.png" title="Aurora UI" data-thumbnail="/digdag-and-embulk/aurora_to_query_ui.png" data-sub-html="<h2>Aurora UI</h2><p>Aurora UI</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/aurora_to_query_ui.png"
+            data-srcset="../digdag-and-embulk/aurora_to_query_ui.png, ../digdag-and-embulk/aurora_to_query_ui.png 1.5x, ../digdag-and-embulk/aurora_to_query_ui.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/aurora_to_query_ui.png" width="1024" height="118" />
+    </a><figcaption class="image-caption">Aurora UI</figcaption>
+    </figure></p>
+<h2 id="5-cấu-tạo-server-digdag">5. Cấu tạo server Digdag</h2>
+<h3 id="51-chạy-nềndemon">5.1 Chạy nền(demon)</h3>
+<p>Máy chủ Digdag được daemoềnhóa bằng systemd. Tôi đã sử dụng ý chính sau đây làm tài liệu tham khảo cho các tệp cần thiết cho quá trình nền.</p>
+<p><a href="https://gist.github.com/uu59/23968e3983adcf5b4cce400710b51cb2" target="_blank" rel="noopener noreffer ">https://gist.github.com/uu59/23968e3983adcf5b4cce400710b51cb2</a></p>
+<p>H2DB được sử dụng cho DB quản lý trạng thái của quy trình công việc và tác vụ, đồng thời các tệp DB được đặt trong thư mục cục bộ của máy chủ Digdag. Vì chúng tôi chỉ có một máy chủ Digdag trong cấu hình của mình, chúng tôi sẽ kích hoạt cả tác nhân cục bộ(local-agent) và vòng lặp thực thi(executor-loop).</p>
+<p>Mã nguồn quy trình làm việc và nhật ký thực hiện tác vụ được lưu trong S3. Thông tin xác thực để truy cập S3 không được ghi trong tệp cấu hình để sử dụng cấu hình phiên bản IAM.</p>
+<p><code>/etc/systemd/system/digdag.service</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">Unit]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Description=digdag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="l">Service]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">User=root</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Restart=always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">TimeoutStartSec=30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Type=simple</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">ExecStart=/etc/init.d/digdag.sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="l">Install]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">WantedBy=multi-user.target</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>/etc/init.d/digdag.sh</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -ue
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> &gt;&gt; /var/log/digdag.log
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> 2&gt;&gt; /var/log/digdag-error.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> /usr/local/bin/digdag server --database /var/digdag/database --access-log /var/digdag/log/access_log --config /etc/digdag/config.properties
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>/etc/digdag/config.properties</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">server.bind<span class="o">=</span>127.0.0.1
+</span></span><span class="line"><span class="cl">server.port<span class="o">=</span><span class="m">65432</span>
+</span></span><span class="line"><span class="cl">database.type<span class="o">=</span>h2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">archive.type<span class="o">=</span>s3
+</span></span><span class="line"><span class="cl">archive.s3.bucket<span class="o">=</span>&lt;s3 bucket name&gt;
+</span></span><span class="line"><span class="cl">archive.s3.path<span class="o">=</span>digdag/archive
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log-server.type<span class="o">=</span>s3
+</span></span><span class="line"><span class="cl">log-server.s3.bucket<span class="o">=</span>&lt;s3 bucket name&gt;
+</span></span><span class="line"><span class="cl">log-server.s3.path<span class="o">=</span>digdag/log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="52-digdag-ui">5.2 Digdag UI</h3>
+<p>Chúng tôi đã sử dụng Cân bằng tải đàn hồi (ELB) để truy cập giao diện người dùng Digdag từ bên ngoài VPC. Trong trường hợp này, chúng tôi chỉ có một máy chủ Digdag, vì vậy chúng tôi không sử dụng ELB để cân bằng tải. Tuy nhiên, xét rằng Digdag giúp dễ dàng xây dựng cấu hình HA, chúng tôi đã gắn Digdag dưới ELB khi chuyển sang cấu hình HA.</p>
+<p>Bạn cũng có thể truy cập Giao diện người dùng Digdag để thực hiện hầu hết mọi thứ liên quan đến quy trình làm việc của mình. Vì vậy, chúng tôi cần hạn chế những người có thể truy cập Giao diện người dùng Digdag. Hiện tại, ELB hạn chế quyền truy cập bằng cách xem địa chỉ IP của nguồn kết nối.</p>
+<p><figure><a class="lightgallery" href="../digdag-and-embulk/elb_to_digdag.png" title="ELB to Digdag" data-thumbnail="/digdag-and-embulk/elb_to_digdag.png" data-sub-html="<h2>ELB to Digdag</h2><p>ELB to Digdag</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/elb_to_digdag.png"
+            data-srcset="../digdag-and-embulk/elb_to_digdag.png, ../digdag-and-embulk/elb_to_digdag.png 1.5x, ../digdag-and-embulk/elb_to_digdag.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/elb_to_digdag.png" width="1024" height="364" />
+    </a><figcaption class="image-caption">ELB to Digdag</figcaption>
+    </figure></p>
+<h3 id="deploy">Deploy</h3>
+<p>Triển khai quy trình làm việc từ CircleCI. Kết nối hợp nhất với nhánh chính trên GitHub và đưa ra lệnh đẩy digdag từ vùng chứa trên CircleCI.</p>
+<p><figure><a class="lightgallery" href="../digdag-and-embulk/deploy_graph.png" title="Deploy" data-thumbnail="/digdag-and-embulk/deploy_graph.png" data-sub-html="<h2>Deploy</h2><p>Deploy</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="../digdag-and-embulk/deploy_graph.png"
+            data-srcset="../digdag-and-embulk/deploy_graph.png, ../digdag-and-embulk/deploy_graph.png 1.5x, ../digdag-and-embulk/deploy_graph.png 2x"
+            data-sizes="auto"
+            alt="/digdag-and-embulk/deploy_graph.png" width="1024" height="658" />
+    </a><figcaption class="image-caption">Deploy</figcaption>
+    </figure></p>
+<h3 id="tổng-kết">Tổng kết</h3>
+<p>Bằng cách sử dụng Digdag và Embulk cùng nhau, chúng tôi đã thành công trong việc xây dựng một hệ thống đồng bộ hóa dữ liệu chính được lưu trữ trong Aurora với BigQuery. Có một số phần khó sử dụng chỉ với Embulk, nhưng Digdag đã bù đắp cho những phần đó và có thể cải thiện tính hoàn thiện của hệ thống. Đặc biệt, chức năng xử lý thử lại, chức năng thực thi song song và chức năng xác nhận nhật ký thực thi bằng giao diện người dùng web rất khó viết một mình, vì vậy Digdag rất hữu ích trong việc xử lý những điều này.
+Có rất ít tài liệu về Digdag nên khi gặp sự cố, bạn có thể không tìm thấy bất kỳ thông tin nào ngay cả khi tìm kiếm trên Stack Overflow hoặc Qiita. Do đó, tôi thường đọc mã nguồn Digdag để giải quyết vấn đề. VASILY đang tìm kiếm những người muốn tích cực giới thiệu các công nghệ mới trong khi chấp nhận thách thức của những khó khăn này. Nếu bạn quan tâm, vui lòng đăng ký từ biểu ngữ bên dưới.</p>
+<h3 id="nguồn-tham-khảo">Nguồn tham khảo</h3>
+<p><a href="https://techblog.zozo.com/entry/digdag_and_embulk" target="_blank" rel="noopener noreffer ">https://techblog.zozo.com/entry/digdag_and_embulk</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-11-14&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/32498d059331d48b7a3f6f5c24dfacf08d5b8806" target="_blank" title="commit by tranChiVi0123(idiots1230@gmail.com) 32498d059331d48b7a3f6f5c24dfacf08d5b8806: recofig">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>32498d0</a></span>
+                <span>Updated on 2022-11-15&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/6fcda0a8eb89efe0026ae1e3990f0fa07007e3c7" target="_blank" title="commit by tranChiVi0123(idiots1230@gmail.com) 6fcda0a8eb89efe0026ae1e3990f0fa07007e3c7: clone digdag and embulk blog">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>6fcda0a</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

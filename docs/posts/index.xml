@@ -9,7 +9,8 @@
     <pubDate>Mon, 14 Nov 2022 17:59:33 &#43;0900</pubDate>
     <author>tranChiVi0123</author>
     <guid>/digdag-and-embulk/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>Xin chào tất cả mọi người, vừa qua trong team mình có làm một project để chạy cập nhật dữ liệu và report cho máy chủ. Nó được viết dựa trên embulk và digdag là một server trạm và một thử viện để run batch job của ruby và một số ngôn ngữ khác. Mình vẫn đang trong giai đoạn tìm hiểu và đúc kết kinh nghiệm thông qua là nghiên cứu này.
+&hellip;</p>]]></description>
 </item>
 </channel>
 </rss>

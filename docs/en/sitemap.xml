@@ -2,10 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/digdag-and-embulk/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>/posts/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>/tags/ruby/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>/tags/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>/digdag-and-embulk/</loc><lastmod>2022-11-15T02:53:36&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>/posts/</loc><lastmod>2022-11-15T02:53:36&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>/tags/ruby/</loc><lastmod>2022-11-15T02:53:36&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>/tags/</loc><lastmod>2022-11-15T02:53:36&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="vi"
                         href="/vi/tags/"
@@ -14,7 +14,7 @@
                     hreflang="en"
                     href="/tags/"
                     /></url><url>
-            <loc>/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>/</loc><lastmod>2022-11-15T02:53:36&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="vi"
                         href="/vi/"

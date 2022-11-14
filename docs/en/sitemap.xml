@@ -2,18 +2,6 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-basics/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-content/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-built-in-shortcodes/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-extended-shortcodes/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/basic-markdown-syntax/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-mermaid-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/emoji-support/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-echarts-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-mapbox-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-music-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-bilibili-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/theme-documentation-typeit-shortcode/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/digdag-and-embulk/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/posts/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/tags/ruby/</loc><lastmod>2022-11-14T19:08:35&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -44,11 +32,6 @@
                     hreflang="en"
                     href="https://tranChiVi0123.github.io/vivien.dev/categories/"
                     /></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/tags/markdown/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/tags/shortcodes/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/tags/html/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/categories/markdown/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://tranChiVi0123.github.io/vivien.dev/tags/emoji/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/categories/documentation/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/tags/content/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://tranChiVi0123.github.io/vivien.dev/tags/installation/</loc><lastmod>2022-11-14T17:28:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

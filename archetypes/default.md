@@ -1,10 +1,9 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
-subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
-author: ""
+author: "tranChiVi0123"
 authorLink: ""
 description: ""
 license: ""

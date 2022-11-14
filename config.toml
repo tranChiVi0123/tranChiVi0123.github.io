@@ -9,13 +9,13 @@ themesDir = "themes/"
 
 # website title
 # 网站标题
-title = "LoveIt"
+title = "Vivien"
 
-# determines default content language ["en", "zh-cn", "fr", "pl", ...]
-# 设置默认的语言 ["en", "zh-cn", "fr", "pl", ...]
+# determines default content language ["en", "vi", "fr", "pl", ...]
+# 设置默认的语言 ["en", "vi", "fr", "pl", ...]
 defaultContentLanguage = "en"
-# language code ["en", "zh-CN", "fr", "pl", ...]
-# 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
+# language code ["en", "vi", "fr", "pl", ...]
+# 网站语言, 仅在这里 CN 大写 ["en", "vi", "fr", "pl", ...]
 languageCode = "en"
 # language name ["English", "简体中文", "Français", "Polski", ...]
 # 语言名称 ["English", "简体中文", "Français", "Polski", ...]
@@ -106,7 +106,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   dateFormat = "2006-01-02"
   # website title for Open Graph and Twitter Cards
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "LoveIt"
+  title = "Vivien"
   # website description for RSS, SEO, Open Graph and Twitter Cards
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
   description = "Hugo theme - LoveIt"
@@ -131,7 +131,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       logo = ""
       # title name
       # 标题名称
-      name = "LoveIt"
+      name = "Vivien"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = "<i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i>"
@@ -566,7 +566,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         lightTheme = "github-light"
         darkTheme = "github-dark"
       # giscus comment config (https://giscus.app/)
-      # giscus comment 评论系统设置 (https://giscus.app/zh-CN)
+      # giscus comment 评论系统设置 (https://giscus.app/vi)
       [params.page.comment.giscus]
         # You can refer to the official documentation of giscus to use the following configuration.
         # 你可以参考官方文档来使用下列配置
@@ -864,71 +864,71 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           gravatarEmail = ""
           avatarURL = "/images/avatar.png"
           title = ""
-          subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+          subtitle = "Hello, こんにちは, Xin Chào"
           typeit = true
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        GitHub = "xxxx"
+        GitHub = "tranChiVi0123"
         Twitter = "xxxx"
         Instagram = "xxxx"
-        Facebook = "xxxx"
+        Facebook = "tranChiVi0123"
         Telegram = "xxxx"
         Youtubelegacy = "xxxx"
         Phone = "555-555-555"
-        Email = "xxxx@xxxx.com"
+        Email = "tranchivi0123@gmail.com"
         RSS = true
         [languages.en.params.social.Mastodon]
           id = "@xxxx"
           prefix = "https://mastodon.technology/"
 
-  [languages.zh-cn]
+  [languages.vi]
     weight = 2
-    languageCode = "zh-CN"
-    languageName = "简体中文"
+    languageCode = "vi"
+    languageName = "Tiếng Việt"
     hasCJKLanguage = true
-    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    [languages.zh-cn.menu]
-      [[languages.zh-cn.menu.main]]
+    copyright = "This work is licensed under a Creative Commons AViệtbution-NonCommercial 4.0 International License."
+    [languages.vi.menu]
+      [[languages.vi.menu.main]]
         weight = 1
         identifier = "posts"
         pre = ""
         post = ""
-        name = "所有文章"
+        name = "Post"
         url = "/posts/"
         title = ""
-      [[languages.zh-cn.menu.main]]
+      [[languages.vi.menu.main]]
         weight = 2
         identifier = "tags"
         pre = ""
         post = ""
-        name = "标签"
+        name = "Tags"
         url = "/tags/"
         title = ""
-      [[languages.zh-cn.menu.main]]
+      [[languages.vi.menu.main]]
         weight = 3
         identifier = "categories"
         pre = ""
         post = ""
-        name = "分类"
+        name = "Categories"
         url = "/categories/"
         title = ""
-      [[languages.zh-cn.menu.main]]
+      [[languages.vi.menu.main]]
         weight = 4
         identifier = "documentation"
         pre = ""
-        name = "文档"
+        name = "Documentation"
         url = "/categories/documentation/"
         title = ""
-      [[languages.zh-cn.menu.main]]
+      [[languages.vi.menu.main]]
         weight = 5
         identifier = "about"
         pre = ""
         post = ""
-        name = "关于"
+        name = "About"
         url = "/about/"
         title = ""
-      [[languages.zh-cn.menu.main]]
+      [[languages.vi.menu.main]]
         weight = 6
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
@@ -936,8 +936,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         name = ""
         url = "https://github.com/dillonzq/LoveIt"
         title = "GitHub"
-    [languages.zh-cn.params]
-      [languages.zh-cn.params.search]
+    [languages.vi.params]
+      [languages.vi.params.search]
         enable = true
         type = "algolia"
         contentLength = 4000
@@ -946,29 +946,26 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         snippetLength = 50
         highlightTag = "em"
         absoluteURL = false
-        [languages.zh-cn.params.search.algolia]
-          index = "index.zh-cn"
+        [languages.vi.params.search.algolia]
+          index = "index.vi"
           appID = "PASDMWALPK"
           searchKey = "b42948e51daaa93df92381c8e2ac0f93"
-      [languages.zh-cn.params.home]
+      [languages.vi.params.home]
         rss = 10
-        [languages.zh-cn.params.home.profile]
+        [languages.vi.params.home.profile]
           enable = true
           gravatarEmail = ""
           avatarURL = "/images/avatar.png"
           title = ""
-          subtitle = "一个简洁、优雅且高效的 Hugo 主题"
+          subtitle = "Hello, こんにちは, Xin Chào"
           typeit = true
           social = true
           disclaimer = ""
-      [languages.zh-cn.params.social]
-        GitHub = "xxxx"
-        Weibo = "xxxx"
+      [languages.vi.params.social]
+        GitHub = "tranChiVi0123"
+        Facebook = "tranChiVi0123"
         Steam = "xxxx"
-        Zhihu = "xxxx"
-        Douban = "xxxx"
         Devto = "xxxx"
-        Bilibili = "xxxx"
-        Email = "xxxx@xxxx.com"
+        Email = "tranchivi0123@gmail.com"
         Phone = "555-555-555"
         RSS = true

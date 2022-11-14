@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://tranChiVi0123.github.io/vivien.dev"
 
 # theme
 # 主题
@@ -6,6 +6,7 @@ theme = "LoveIt"
 # themes directory
 # 主题目录
 themesDir = "themes/"
+publishDir = "docs"
 
 # website title
 # 网站标题
